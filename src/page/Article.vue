@@ -5,13 +5,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'Article',
-  props: {
-    msg: {
-      type: String,
-      required: true
-    }
-  },
+  name: 'Article'
 })
 </script>
 

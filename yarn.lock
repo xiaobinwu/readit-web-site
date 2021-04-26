@@ -455,9 +455,9 @@ postcss-value-parser@^4.1.0:
   integrity sha1-RD9qIM7WSBor2k+oUypuVdeJoss=
 
 postcss@^8.1.10, postcss@^8.2.1:
-  version "8.2.12"
-  resolved "https://registry.nlark.com/postcss/download/postcss-8.2.12.tgz?cache=0&sync_timestamp=1619108109194&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpostcss%2Fdownload%2Fpostcss-8.2.12.tgz#81248a1a87e0f575cc594a99a08207fd1c4addc4"
-  integrity sha1-gSSKGofg9XXMWUqZoIIH/RxK3cQ=
+  version "8.2.13"
+  resolved "https://registry.nlark.com/postcss/download/postcss-8.2.13.tgz#dbe043e26e3c068e45113b1ed6375d2d37e2129f"
+  integrity sha1-2+BD4m48Bo5FETse1jddLTfiEp8=
   dependencies:
     colorette "^1.2.2"
     nanoid "^3.1.22"
@@ -572,9 +572,9 @@ util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
 vite@^2.1.5:
-  version "2.2.2"
-  resolved "https://registry.nlark.com/vite/download/vite-2.2.2.tgz#9ad2063929ecd632f16dc9471217e26992938aad"
-  integrity sha1-mtIGOSns1jLxbclHEhfiaZKTiq0=
+  version "2.2.3"
+  resolved "https://registry.nlark.com/vite/download/vite-2.2.3.tgz#1acbdfa56ac00e00e7ccb6988f63f130c2f99dbb"
+  integrity sha1-GsvfpWrADgDnzLaYj2PxMML5nbs=
   dependencies:
     esbuild "^0.9.3"
     postcss "^8.2.1"

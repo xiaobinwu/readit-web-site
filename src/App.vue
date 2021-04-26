@@ -1,16 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <Home />
+  <Header />
+  <router-view></router-view>
+  <Footer />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Home from './page/Home.vue'
+import Header from 'readit/components/Header.vue'
+import Footer from 'readit/components/Footer.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    Home
+    Header,
+    Footer
   }
 })
 </script>
