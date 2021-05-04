@@ -6,7 +6,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   resolve: {
     alias: {
-      'readit': resolve(__dirname, 'src')
+      '@app': resolve(__dirname, 'src')
     }
   },
   plugins: [vue()]
