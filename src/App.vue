@@ -21,19 +21,22 @@
     <template #fallback> Loading... </template>
   </Suspense>
   <Footer />
+  <GoTop />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Header from '@app/components/Header.vue'
 import Footer from '@app/components/Footer.vue'
+import GoTop from '@app/components/GoTop.vue'
 import scrollWaiter from '@app/route/scroll-waiter'
 
 export default defineComponent({
   name: 'App',
   components: {
     Header,
-    Footer
+    Footer,
+    GoTop
   },
   setup() {
     function flushWaiter() {
@@ -51,12 +54,11 @@ export default defineComponent({
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import url('./variable.css');
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-top: 60px;
+  }
 </style>

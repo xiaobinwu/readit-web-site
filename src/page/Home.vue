@@ -16,21 +16,24 @@
         </div>
       </div>
       <div class="aside">
-        <button @click="fetchArticles(2)">添加</button>
-        <p>{{ JSON.stringify(articles.length > 0) }}</p>
+        <Calendar @click-callback="handleCalenderClick" />
+        <AppDownLoadNav />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, onUnmounted } from 'vue'
+import { defineComponent, ref, onMounted, onUnmounted, watch } from 'vue'
 import request from '@app/services/request'
 import { IHttpResultPaginate } from '@app/types/http'
 import { IArticle } from '@app/types/business'
 import AppLink from '@app/components/AppLink.vue'
+import Calendar from '@app/components/Calendar.vue';
 import ArticlePlaceholder from '@app/components/ArticlePlaceholder.vue'
+import AppDownLoadNav from '@app/components/AppDownLoadNav.vue'
 import ArticleItem from './ArticleItem.vue'
+import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
  type THttpResultPaginateArticles = IHttpResultPaginate<IArticle[]>;
 
@@ -39,9 +42,12 @@ export default defineComponent({
   components: {
     AppLink,
     ArticleItem,
-    ArticlePlaceholder
+    ArticlePlaceholder,
+    Calendar,
+    AppDownLoadNav
   },
   setup(props) {
+    const route = useRoute(); 
     const articles = ref([]);
     const loading = ref(false);
     let pagination = ref({
@@ -50,6 +56,19 @@ export default defineComponent({
       pages: 0, // 总页数
       size: 0, // 每页显示数据数
     });
+
+    onBeforeRouteLeave((to, from) => {
+      removeScrollEvent();
+    });
+
+    watch(
+      () => route.name,
+      async newName => {
+        if (newName === 'Home') {
+          initScrollEvent();
+        }
+      }
+    )
 
     // 更新列表
     const updateResultData = (result: THttpResultPaginateArticles) => {
@@ -90,9 +109,19 @@ export default defineComponent({
     }
     const initScrollEvent = () => {
       window.addEventListener('scroll', scrollHander);
+      // @ts-ignore
+      window.echo.init();
     }
     const removeScrollEvent = () => {
       window.removeEventListener('scroll', scrollHander);
+      // @ts-ignore
+      window.echo.detach();
+    }
+
+    // 日历点击回调
+    const handleCalenderClick = (cell: any, dateData: any) => {
+      console.log(cell, 'cell');
+      console.log(dateData, 'dateData');
     }
 
     // 初始化
@@ -109,21 +138,21 @@ export default defineComponent({
       articles,
       loading,
       pagination,
-      fetchArticles
+      fetchArticles,
+      handleCalenderClick
     };
 
   }
 })
 </script>
 
-<style scoped>
+<style>
   .container {
     margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
-    min-width: 750px;
-    max-width: 960px;
+    width: 960px;
   }
   .row:after, .row:before {
       content: " ";
@@ -152,6 +181,5 @@ export default defineComponent({
     min-height: 1px;
     width: 29%;
     float: left;
-    background-color: azure;
   }
 </style>

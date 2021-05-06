@@ -677,15 +677,17 @@ vite@^2.1.5:
   optionalDependencies:
     fsevents "~2.3.1"
 
-vue-lazyload@^1.3.3:
-  version "1.3.3"
-  resolved "https://registry.npm.taobao.org/vue-lazyload/download/vue-lazyload-1.3.3.tgz#4df50a271bde9b74c3caf7a228d6e0af50d5682f"
-  integrity sha1-TfUKJxvem3TDyveiKNbgr1DVaC8=
-
 vue-router@4:
   version "4.0.6"
   resolved "https://registry.nlark.com/vue-router/download/vue-router-4.0.6.tgz#91750db507d26642f225b0ec6064568e5fe448d6"
   integrity sha1-kXUNtQfSZkLyJbDsYGRWjl/kSNY=
+
+vue-switches@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npm.taobao.org/vue-switches/download/vue-switches-2.0.1.tgz#f23436259c7fe4ffca9c4a6df49ac78941e20a20"
+  integrity sha1-8jQ2JZx/5P/KnEpt9JrHiUHiCiA=
+  dependencies:
+    vue "^2.2.6"
 
 vue-tsc@^0.0.24:
   version "0.0.24"
@@ -693,6 +695,11 @@ vue-tsc@^0.0.24:
   integrity sha1-DNkNtnn1PqFpQlS4Zj/bPWJKCHI=
   dependencies:
     unzipper "0.10.11"
+
+vue@^2.2.6:
+  version "2.6.12"
+  resolved "https://registry.npm.taobao.org/vue/download/vue-2.6.12.tgz?cache=0&sync_timestamp=1617324200123&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue%2Fdownload%2Fvue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
+  integrity sha1-9evU+mvShpQD4pqJau1JBEVskSM=
 
 vue@^3.0.5:
   version "3.0.11"

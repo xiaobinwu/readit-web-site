@@ -70,7 +70,6 @@
         animation: loading 1s ease-in-out -.5s infinite;
     }
     .article-placeholder .meta {
-        text-align: left;
         margin: 0;
         color: #eaeaea;
         font-size: 12px;

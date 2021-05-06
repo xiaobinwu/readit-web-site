@@ -1,0 +1,41 @@
+:root {
+    --background: #fff;
+    --primary: #7cb305;
+    --textTitle: #2f2f2f;
+    --textDefault: #999;
+    --textMeta: #b4b4b4;
+    --textLink: #969696;
+    --textEffectLink: #2f2f2f;
+    --border: #f0f0f0;
+    --navLink: #333;
+    --navLinkHoverBg: #f5f5f5;
+    --placeholder: #eaeaea;
+    --switchUncheck: rgb(157 157 157 / 41%);
+    --switchUncheckBg: rgb(183 183 183 / 24%);
+    --switchCheck: #aee43a;
+    --switchCheckBg: #7cb305;
+    --goTopBorder: #dcdcdc;
+    --goTopBg: hsla(0, 0%, 71%, .1);
+    --goTopIcon: #333;
+}
+
+:root[theme='dark'] {
+    --background: #000;
+    --primary: #fadb14;
+    --textTitle: #eee;
+    --textDefault: #999;
+    --textMeta: #999;
+    --textLink: #969696;
+    --textEffectLink: #2f2f2f;
+    --border: #f0f0f0;
+    --navLink: #333;
+    --navLinkHoverBg: #f5f5f5;
+    --placeholder: #eaeaea;
+    --switchUncheck: rgb(157 157 157 / 41%);
+    --switchUncheckBg: rgb(183 183 183 / 24%);
+    --switchCheck: #aee43a;
+    --switchCheckBg: #7cb305;
+    --goTopBorder: #dcdcdc;
+    --goTopBg: hsla(0, 0%, 71%, .1);
+    --goTopIcon: #333;
+}

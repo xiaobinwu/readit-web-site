@@ -1,6 +1,10 @@
 <template>
     <div class="article-item">
-        <div class="article-img-container" :style="`background-image: url(${article.thumb})`"> 
+        <div
+          class="article-img-container"
+          :data-echo-background="article.thumb"
+          :style="`background-image: url('/thumb-carrousel.gif')`"
+        > 
           <AppLink class="article-link"  :to="`/article/${article._id}`" />
         </div>
         <div class="article-content">
@@ -29,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs } from 'vue'
+import { defineComponent, toRefs, watch } from 'vue'
 import AppLink from '@app/components/AppLink.vue'
 
 export default defineComponent({
@@ -78,7 +82,6 @@ export default defineComponent({
   }
   :deep(.article-title) {
     color: #2f2f2f;
-    text-align: left;
     margin: -7px 0 4px;
     display: inherit;
     font-size: 18px;
@@ -89,7 +92,6 @@ export default defineComponent({
     text-decoration: underline;
   }
   .article-abstract {
-    text-align: left;
     margin: 0 0 8px;
     font-size: 13px;
     line-height: 24px;
@@ -100,7 +102,6 @@ export default defineComponent({
     padding-right: 165px;
   }
   .article-meta {
-    text-align: left;
     padding-right: 0;
     font-size: 13px;
     font-weight: 400;

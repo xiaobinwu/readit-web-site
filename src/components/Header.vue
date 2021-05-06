@@ -17,6 +17,22 @@
                     <i class="iconfont iconAPP"></i>
                     下载App
                 </AppLink>
+                <div class="flex-right">
+                    <Switch
+                        class="navbar-switch"
+                        v-model="darkTheme"
+                        theme="bulma"
+                        color="default"
+                        type-bold="true"
+                    >
+                        <template #label>
+                            <sapn class="navbar-switch-label">
+                                <i class="iconfont iconmoonbyueliang"></i>
+                                <span>夜间模式</span>
+                            </sapn>
+                        </template>
+                    </Switch>
+                </div>
               </div>
           </div>
       </div>
@@ -24,12 +40,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+import Switch from '@app/components/Switch.vue'
 import AppLink from '@app/components/AppLink.vue'
+
+
 export default defineComponent({
   name: 'Header',
   components: {
-    AppLink
+    AppLink,
+    Switch
+  },
+  setup(props) {
+    const darkTheme = ref(false)
+    return {
+        darkTheme
+    }  
   }
 })
 </script>
@@ -59,6 +85,31 @@ export default defineComponent({
         min-width: 768px;
         max-width: 1440px;
         margin: 0 auto;
+    }
+    .flex-right {
+        flex: 1;
+        height: 56px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .navbar-switch {
+        display: flex;
+        margin-right: 5px;
+    }
+    :deep(.navbar-switch.vue-switcher--bold div) {
+        top: 15px;
+    }
+    .navbar-switch-label {
+        font-size: 15px;
+        line-height: 56px;
+        margin-bottom: 0;
+        margin-right: 8px;
+        color: #969696;
+    }
+    .navbar-switch-label i {
+        margin-right: 5px;
     }
     .container {
         margin-right: auto;
@@ -103,6 +154,7 @@ export default defineComponent({
     }
     :deep(.send-article) {
         float: right;
+        text-align: center;
         width: 100px;
         height: 40px;
         line-height: 40px;
