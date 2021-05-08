@@ -31,12 +31,15 @@ export default defineComponent({
         width: 50px;
         height: 50px;
         border: 1px solid #dcdcdc;
+        border: 1px solid var(--goTopBorder);
     }
     .go-top:hover {
         background-color: hsla(0, 0%, 71%, .1);
+        background-color: var(--goTopBg);
     }
     .go-top i {
         font-size: 20px;
         color: #333;
+        color: var(--goTopIcon);
     }
 </style>

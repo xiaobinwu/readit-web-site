@@ -1,12 +1,6 @@
 <template>
     <label :class="classObject">
-        <!-- <span class="vue-switcher__label" v-if="shouldShowLabel">
-            <span v-if="label" v-text="label"></span>
-            <span v-if="!label && modelValue" v-text="textEnabled"></span>
-            <span v-if="!label && !modelValue" v-text="textDisabled"></span>
-        </span> -->
-
-				<slot name="label"></slot>
+		<slot name="label"></slot>
 
         <input type="checkbox" :disabled="disabled" @change="trigger" :checked="modelValue">
 
@@ -152,17 +146,21 @@ export default defineComponent({
 
     .vue-switcher-theme.vue-switcher-color div {
         background-color: #7cb305;
+        background-color: var(--primary);
     }
 
     .vue-switcher-theme.vue-switcher-color div:after {
         background-color: #aee43a;
+        background-color: var(--switchCheck);
     }
 
     .vue-switcher-theme.vue-switcher-color.vue-switcher--unchecked div {
         background-color: rgb(183 183 183 / 24%);
+        background-color: var(--switchUncheckBg);
     }
 
     .vue-switcher-theme.vue-switcher-color.vue-switcher--unchecked div:after {
         background-color: rgb(157 157 157 / 41%);
+        background-color: var(--switchUncheck);
     }
 </style>

@@ -445,9 +445,11 @@ window.calendar = (function() {
                 var X = R("DIV");
                 if (c[a].isToday) {
                     //选中cell的背景色和边框颜色
-                    X.style.cssText="font-weight: bold; color: #7cb305;"
+                    // X.style.cssText="font-weight: bold; color: #7cb305;"
+                    X.className = "cell cell-today";
+                } else {
+                    X.className = "cell";
                 }
-                X.className = "cell";
                 X.style.left = (a % 7) * (opt.calendarWidth ? (opt.calendarWidth / 7) : 60) + "px";
                 X.style.top = Math.floor(a / 7) * 40 + 2 + "px";
                 var b = R("DIV");

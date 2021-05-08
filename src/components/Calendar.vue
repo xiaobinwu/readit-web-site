@@ -51,27 +51,30 @@ export default defineComponent({
 
 <style>
 		#cal {
-				width: 100%;
-				font-size: 12px;
-				position: relative;
+			width: 100%;
+			font-size: 12px;
+			position: relative;
 		}
 		
 		#cal #top {
-				height: 40px;
-				line-height: 40px;
-				background: #f2f2f2;
-				border: 1px solid #f2f2f2;
-				color: #7cb305;
-				padding: 0 10px;
-				clear: both;
+			height: 40px;
+			line-height: 40px;
+			background: #f2f2f2;
+			border: 1px solid #f2f2f2;
+			color: #7cb305;
+			background: var(--calendarColor);
+			border: 1px solid var(--calendarColor);
+			color: var(--primary);
+			padding: 0 10px;
+			clear: both;
 		}
 		
 		#cal #top select {
-				font-size: 12px
+			font-size: 12px
 		}
 		
 		#cal #top input {
-				padding: 0
+			padding: 0
 		}
 		
 		#cal #wk {
@@ -84,6 +87,9 @@ export default defineComponent({
 			border-right: 1px solid #f2f2f2;
 			display: flex;
 			width: 100%;
+			color: var(--textDefault);
+			border-left: 1px solid var(--calendarColor);
+			border-right: 1px solid var(--calendarColor);
 		}
 		
 		#cal #wk span {
@@ -94,110 +100,130 @@ export default defineComponent({
 		}
 		
 		#cal #wk span b {
-				font-weight: normal;
+			font-weight: normal;
 		}
 		
 		#cal #cm {
-				clear: left;
-				position: relative;
-				border-left: 1px solid #f2f2f2;
-				border-right: 1px solid #f2f2f2;
+			clear: left;
+			position: relative;
+			border-left: 1px solid #f2f2f2;
+			border-right: 1px solid #f2f2f2;
+			border-left: 1px solid var(--calendarColor);
+			border-right: 1px solid var(--calendarColor);
 		}
 		
 		#cal #cm .cell {
-				color: #999;
-				position: absolute;
-				width: 14.285714285714286%;
-				height: 36px;
-				text-align: center;
-				cursor: pointer;
+			color: #999;
+			color: var(--textDefault);
+			position: absolute;
+			width: 14.285714285714286%;
+			height: 36px;
+			text-align: center;
+			cursor: pointer;
+		}
+		#cal #cm .cell.cell-today {
+			color: #7cb305;
+			color: var(--primary);
+			font-weight: bolder;
 		}
 		
 		#cal #cm .cell .so {
-				font: 12px arial;
+			font: 12px arial;
 		}
 		#cal #cm .cell .so div {
 			font-size: 10px;
 		}
 		
 		#cal #bm {
-				text-align: right;
-				height: 30px;
-				line-height: 30px;
-				padding: 0 13px 0 0;
-				border: 1px solid #f2f2f2;
-				border-top: 1px dashed #f0f0f0;
-				clear: both;
-				padding: 0 10px;
-				font-size: 14px;
+			text-align: right;
+			height: 30px;
+			line-height: 30px;
+			padding: 0 13px 0 0;
+			border: 1px solid #f2f2f2;
+			border-top: 1px dashed #f0f0f0;
+			border: 1px solid var(--calendarColor);
+			border-top: 1px dashed var(--border);
+			clear: both;
+			padding: 0 10px;
+			font-size: 14px;
 		}
 		
 		#cal #bm .heavenly-branch {
-				color: #7cb305;
-				float: left;
+			color: #7cb305;
+			color: var(--primary);
+			float: left;
 		}
 		#cal #fd {
-				display: none;
-				position: absolute;
-				border: 1px solid #f0f0f0;
-				background: #f0f0f0;
-				color: #999;
-				padding: 10px;
-				line-height: 21px;
-				width: 150px;
-				border-radius: 10px;
+			display: none;
+			position: absolute;
+			border: 1px solid #f0f0f0;
+			background: #f0f0f0;
+			color: #999;
+			border: 1px solid var(--border);
+			background: var(--border);
+			color: var(--textDefault);
+			padding: 10px;
+			line-height: 21px;
+			width: 150px;
+			border-radius: 10px;
 		}
 		#cal #fd:before{
-				content: '';
-				position: absolute;
-				left: -8px;
-				width: 0;
-				height: 0;
-				border-top: 8px solid transparent;
-				border-right: 8px solid #f0f0f0;
-				border-bottom: 8px solid transparent;
+			content: '';
+			position: absolute;
+			left: -8px;
+			width: 0;
+			height: 0;
+			border-top: 8px solid transparent;
+			border-right: 8px solid #f0f0f0;
+			border-right: 8px solid var(--border);
+			border-bottom: 8px solid transparent;
 		}
 		#cal #fd:after{
-				content: '';
-				position: absolute;
-				left: -6px;
-				top: 10px;
-				width: 0;
-				height: 0;
-				border-top: 8px solid transparent;
-				border-right: 8px solid #f0f0f0;
-				border-bottom: 8px solid transparent;
+			content: '';
+			position: absolute;
+			left: -6px;
+			top: 10px;
+			width: 0;
+			height: 0;
+			border-top: 8px solid transparent;
+			border-right: 8px solid #f0f0f0;
+			border-right: 8px solid var(--border);
+			border-bottom: 8px solid transparent;
 		}
 		#cal #fd b {
-				font-weight: normal;
-				color: #7cb305;
+			font-weight: normal;
+			color: #7cb305;
+			color: var(--primary);
 		}
 		#cal .step {
-				float: right;
-				font-size: 16px;
+			float: right;
+			font-size: 16px;
 		}
 		#cal .step i{
-				cursor: pointer;
+			cursor: pointer;
 		}
 		#cal .step #prev{
-				margin-right: 10px;
+			margin-right: 10px;
 		}
 		#cal .select{
-				float: left;
+			float: left;
 		}
 		#cal .select select{
-				-webkit-appearance: none;
-				padding: 5px 20px;
+			-webkit-appearance: none;
+			padding: 5px 20px;
+			outline: none;
 		}
 		#cal #now-date{
-				float: right;
-				padding: 0px 10px;
-				background-color: #7cb305;
-				color: #fff;
-				font-size: 12px;
-				height: 20px;
-				line-height: 20px;
-				margin-top: 6px;
-				text-decoration: none;
+			float: right;
+			padding: 0px 10px;
+			background-color: #7cb305;
+			color: #fff;
+			background-color: var(--primary);
+			color: var(--white);
+			font-size: 12px;
+			height: 20px;
+			line-height: 20px;
+			margin-top: 6px;
+			text-decoration: none;
 		}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <footer class="container">
+  <footer class="footer">
       <div class="footer-content">
         <div class="footer-left">
             Copyright © 2021 
@@ -28,7 +28,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-    .container {
+    .footer {
         margin: 20px auto;
         min-width: 750px;
         max-width: 960px;
@@ -36,11 +36,11 @@ export default defineComponent({
         padding-right: 15px;
         font-size: 13px;
     }
-    .container:after, .container:before {
+    .footer:after, .footer:before {
         content: " ";
         display: table;
     }
-    .container:after {
+    .footer:after {
         clear: both;
     }
     .footer-content {
@@ -52,17 +52,19 @@ export default defineComponent({
         padding-left: 15px;
         float: left;
         color: #969696; 
+        color: var(--textLink); 
     }
     :deep(.footer-content a) {
         color: #969696; 
+        color: var(--textLink); 
     }
     :deep(.footer-content a:hover) {
         color: #2f2f2f;
+        color: var(--textEffectLink); 
     }
     .footer-left {
         align-self: flex-start;
         margin-right: 20px;
-        
     }
     .footer-right {
         align-self: flex-end;

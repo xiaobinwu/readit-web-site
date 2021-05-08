@@ -38,6 +38,7 @@
         height: 100px;
         border-radius: 4px;
         background-color: #eaeaea;
+        background-color: var(--placeholder);
     }
     .article-placeholder .content {
         padding-right: 165px;
@@ -48,6 +49,7 @@
         height: 20px;
         margin: 0 0 15px!important;
         background-color: #eaeaea;
+        background-color: var(--placeholder);
     }
     .article-placeholder .title:before {
         content: ""!important;
@@ -57,6 +59,7 @@
         height: 16px;
         margin: 0 0 10px;
         background-color: #eaeaea;
+        background-color: var(--placeholder);
         animation: loading 1s ease-in-out infinite;
     }
     .article-placeholder .text {
@@ -64,6 +67,7 @@
         height: 16px;
         margin: 0 0 10px;
         background-color: #eaeaea;
+        background-color: var(--placeholder);
         animation: loading 1s ease-in-out infinite;
     }
     .article-placeholder .animation-delay {
@@ -72,6 +76,7 @@
     .article-placeholder .meta {
         margin: 0;
         color: #eaeaea;
+        color: var(--placeholder);
         font-size: 12px;
     }
     .article-placeholder .meta .read {
@@ -82,6 +87,7 @@
         display: inline-block;
         vertical-align: middle;
         background-color: #eaeaea;
+        background-color: var(--placeholder);
     }
     .article-placeholder .meta i {
         margin: 0 5px;

@@ -1,7 +1,9 @@
 <template>
+  
   <div class="container">
     <div class="row">
       <div class="main">
+        <ClassifiedNav @query="fetchArticles" />
         <div class="list-container">
           <div class="article-list">
             <template v-if="articles.length > 0">
@@ -12,7 +14,7 @@
               />
             </template>
           </div>
-          <ArticlePlaceholder v-show="loading" />
+          <ArticlePlaceholder v-show="loading || articles.length === 0" />
         </div>
       </div>
       <div class="aside">
@@ -24,7 +26,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, onUnmounted, watch } from 'vue'
+import { defineComponent, ref, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import request from '@app/services/request'
 import { IHttpResultPaginate } from '@app/types/http'
 import { IArticle } from '@app/types/business'
@@ -32,6 +34,7 @@ import AppLink from '@app/components/AppLink.vue'
 import Calendar from '@app/components/Calendar.vue';
 import ArticlePlaceholder from '@app/components/ArticlePlaceholder.vue'
 import AppDownLoadNav from '@app/components/AppDownLoadNav.vue'
+import ClassifiedNav from '@app/components/ClassifiedNav.vue'
 import ArticleItem from './ArticleItem.vue'
 import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
@@ -44,7 +47,8 @@ export default defineComponent({
     ArticleItem,
     ArticlePlaceholder,
     Calendar,
-    AppDownLoadNav
+    AppDownLoadNav,
+    ClassifiedNav
   },
   setup(props) {
     const route = useRoute(); 
@@ -71,7 +75,7 @@ export default defineComponent({
     )
 
     // 更新列表
-    const updateResultData = (result: THttpResultPaginateArticles) => {
+    const updateResultData = async (result: THttpResultPaginateArticles) => {
         const { entry, ...resetReuslt } = result;
         const { list = [] } = entry;
         loading.value = false;
@@ -81,12 +85,15 @@ export default defineComponent({
         } else {
             articles.value = list;
         }
+        await nextTick();
+        // @ts-ignore
+        window.echo.render();
     }
 
     // 请求数据
-    const fetchArticles = async (pageNo: number = 1): Promise<any> => {
+    const fetchArticles = async (pageNo: number = 1, otherParams = {}): Promise<any> => {
       loading.value = true;
-      const data = await request.fetchArticles<THttpResultPaginateArticles>({ pageNo });
+      const data = await request.fetchArticles<THttpResultPaginateArticles>({ pageNo, ...otherParams });
       const { code, message, ...reset } = data;
       if (code === 0) {
           console.log(reset);
@@ -146,13 +153,16 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style scoped>
   .container {
     margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
     width: 960px;
+  }
+  .list-container {
+    padding-top: 10px;
   }
   .row:after, .row:before {
       content: " ";

@@ -73,6 +73,8 @@ export default defineComponent({
         border: 1px solid transparent;
         background-color: #fff;
         border-color: #f0f0f0;
+        background-color: var(--background);
+        border-color: var(--border);
     }
     .navbar:after, .navbar:before {
         content: " ";
@@ -107,6 +109,7 @@ export default defineComponent({
         margin-bottom: 0;
         margin-right: 8px;
         color: #969696;
+        color: var(--textLink);
     }
     .navbar-switch-label i {
         margin-right: 5px;
@@ -132,16 +135,19 @@ export default defineComponent({
         font-size: 17px;
         margin-right: 10px;
         color: #333;
+        color: var(--navLink);
     }
     :deep(.nav-link .iconfont) {
         font-size: 20px;
     }
     :deep(.nav-active) {
         color: #7cb305;
+        color: var(--primary);
         background: none;
     }
     :deep(.nav-inactive:hover) {
         background-color: #f5f5f5;
+        background-color: var(--navLinkHoverBg);
     }
     :deep(.logo) {
         cursor: pointer;
@@ -163,5 +169,7 @@ export default defineComponent({
         font-size: 15px;
         color: #fff;
         background-color: #7cb305;
+        color: var(--white);
+        background-color: var(--primary);
     }
 </style>

@@ -1,4 +1,5 @@
 :root {
+    --white: #fff;
     --background: #fff;
     --primary: #7cb305;
     --textTitle: #2f2f2f;
@@ -17,9 +18,11 @@
     --goTopBorder: #dcdcdc;
     --goTopBg: hsla(0, 0%, 71%, .1);
     --goTopIcon: #333;
+    --calendarColor: #f2f2f2;
 }
 
 :root[theme='dark'] {
+    --white: #fff;
     --background: #000;
     --primary: #fadb14;
     --textTitle: #eee;
@@ -38,4 +41,5 @@
     --goTopBorder: #dcdcdc;
     --goTopBg: hsla(0, 0%, 71%, .1);
     --goTopIcon: #333;
+    --calendarColor: #f2f2f2;
 }
