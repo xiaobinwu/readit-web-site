@@ -61,6 +61,7 @@ export default defineComponent({
     margin: 0 0 15px;
     padding: 15px 2px 20px 0;
     border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid var(--border);
   }
   .article-img-container {
     position: absolute;
@@ -70,7 +71,7 @@ export default defineComponent({
     width: 150px;
     height: 100px;
     border-radius: 4px;
-    background-color: RGB(241, 243, 244);
+    /* background-color: RGB(241, 243, 244); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -82,6 +83,7 @@ export default defineComponent({
   }
   :deep(.article-title) {
     color: #2f2f2f;
+    color: var(--textEffectLink);
     margin: -7px 0 4px;
     display: inherit;
     font-size: 18px;
@@ -96,6 +98,7 @@ export default defineComponent({
     font-size: 13px;
     line-height: 24px;
     color: #999;
+    color: var(--textDefault);
   }
   .article-content {
     box-sizing: border-box;
@@ -110,6 +113,7 @@ export default defineComponent({
   .article-meta span {
     margin-right: 10px;
     color: #b4b4b4;
+    color: var(--textMeta);
   }
   .article-meta i {
     font-size: 15px;

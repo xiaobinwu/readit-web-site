@@ -55,10 +55,14 @@ export default defineComponent({
 
 <style>
   @import url('./variable.css');
+  body {
+    background-color: #fff;
+    background-color: var(--background);
+  }
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    margin-top: 60px;
+    margin-top: 56px;
   }
 </style>

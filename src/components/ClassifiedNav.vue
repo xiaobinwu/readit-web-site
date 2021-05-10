@@ -149,6 +149,8 @@ export default defineComponent({
         align-items: center;
         justify-content: space-between;
         height: 40px;
+        color: #333;
+        color: var(--navLink);
     }
     .cat-container {
         display: flex;
@@ -177,6 +179,8 @@ export default defineComponent({
         vertical-align: bottom;
         background-color: #f2f2f2;
         background-color: var(--calendarColor);
+        color: #333;
+        color: var(--navLink);
         border-color: transparent;
         padding: 0 10px;
         outline: none;

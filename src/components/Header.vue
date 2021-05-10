@@ -23,13 +23,13 @@
                         v-model="darkTheme"
                         theme="bulma"
                         color="default"
-                        type-bold="true"
+                        :type-bold="true"
                     >
                         <template #label>
-                            <sapn class="navbar-switch-label">
+                            <span class="navbar-switch-label">
                                 <i class="iconfont iconmoonbyueliang"></i>
                                 <span>夜间模式</span>
-                            </sapn>
+                            </span>
                         </template>
                     </Switch>
                 </div>
@@ -40,10 +40,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, onMounted, ref, watch } from 'vue'
 import Switch from '@app/components/Switch.vue'
 import AppLink from '@app/components/AppLink.vue'
+import storage from '@app/services/storage';
+import { STORAGE } from '@app/constants/storage';
 
+const LOCALSTORGE = 'local';
+const DARK = 'dark';
+const THEME_DOM_ATTR = 'theme';
 
 export default defineComponent({
   name: 'Header',
@@ -52,7 +57,31 @@ export default defineComponent({
     Switch
   },
   setup(props) {
-    const darkTheme = ref(false)
+    const darkTheme = ref(false);
+
+    watch(
+      darkTheme,
+      (bool) => {
+        if(!bool){
+            storage.remove(STORAGE.LOCAL_DARK_THEME, LOCALSTORGE);
+            document.documentElement.removeAttribute(THEME_DOM_ATTR);
+        }
+        else{
+            storage.set(STORAGE.LOCAL_DARK_THEME, true, LOCALSTORGE);
+            document.documentElement.setAttribute(THEME_DOM_ATTR, DARK);
+        }
+      }
+    )
+
+    const init = () => {
+        console.log(storage.get<string>(STORAGE.LOCAL_DARK_THEME, undefined, LOCALSTORGE));
+        if (storage.get<string>(STORAGE.LOCAL_DARK_THEME, undefined, LOCALSTORGE)) {
+            darkTheme.value = true;
+        }
+    }
+
+    onMounted(init);
+
     return {
         darkTheme
     }  
@@ -169,7 +198,7 @@ export default defineComponent({
         font-size: 15px;
         color: #fff;
         background-color: #7cb305;
-        color: var(--white);
+        color: var(--background);
         background-color: var(--primary);
     }
 </style>

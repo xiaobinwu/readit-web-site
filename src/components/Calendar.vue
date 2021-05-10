@@ -212,6 +212,10 @@ export default defineComponent({
 			-webkit-appearance: none;
 			padding: 5px 20px;
 			outline: none;
+			color: #333;
+			background-color: #fff;
+			color: var(--calendarSelectColor);
+			background-color: var(--calendarSelectBg);
 		}
 		#cal #now-date{
 			float: right;

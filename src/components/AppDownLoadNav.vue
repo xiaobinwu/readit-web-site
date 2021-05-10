@@ -92,7 +92,7 @@ export default defineComponent({
         margin-left: -10px;
         border-bottom-width: 0;
         border-top-color: #fff;
-        border-top-color: var(--white);
+        border-top-color: var(--background);
     }
     .qrcode {
         width: 50px;
