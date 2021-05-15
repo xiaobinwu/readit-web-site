@@ -10,59 +10,53 @@
           @before-leave="setupWaiter"
         >
           <keep-alive>
-            <component
-              :is="Component"
-              :key="route.path"
-            />
+            <component :is="Component" :key="route.path" />
           </keep-alive>
         </transition>
       </router-view>
     </template>
     <template #fallback> Loading... </template>
   </Suspense>
-  <Footer />
   <GoTop />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import Header from '@app/components/Header.vue'
-import Footer from '@app/components/Footer.vue'
-import GoTop from '@app/components/GoTop.vue'
-import scrollWaiter from '@app/route/scroll-waiter'
+import { defineComponent } from "vue";
+import Header from "@app/components/Header.vue";
+import GoTop from "@app/components/GoTop.vue";
+import scrollWaiter from "@app/route/scroll-waiter";
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
   components: {
     Header,
-    Footer,
-    GoTop
+    GoTop,
   },
   setup() {
     function flushWaiter() {
-      scrollWaiter.flush()
+      scrollWaiter.flush();
     }
     function setupWaiter() {
-      scrollWaiter.add()
+      scrollWaiter.add();
     }
     return {
       flushWaiter,
-      setupWaiter
-    }
-  }
-})
+      setupWaiter,
+    };
+  },
+});
 </script>
 
 <style>
-  @import url('./variable.css');
-  body {
-    background-color: #fff;
-    background-color: var(--background);
-  }
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin-top: 56px;
-  }
+@import url("./variable.css");
+body {
+  background-color: #fff;
+  background-color: var(--background);
+}
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 56px;
+}
 </style>

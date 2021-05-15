@@ -5,7 +5,7 @@
  */
 
 export enum STORAGE {
-    LOCAL_DARK_THEME = 'localDarkTheme',
+	LOCAL_DARK_THEME = 'localDarkTheme',
 }
-  
+
 export default STORAGE;

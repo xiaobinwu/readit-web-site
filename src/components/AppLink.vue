@@ -20,20 +20,20 @@
 </template>
 
 <script lang="ts">
-import { RouterLink } from 'vue-router'
-import { defineComponent } from 'vue'
+import { RouterLink } from "vue-router";
+import { defineComponent } from "vue";
 export default defineComponent({
-  name: 'AppLink',
+  name: "AppLink",
   props: {
-      // @ts-ignore
-      ...RouterLink.props,
-      inactiveClass: String
+    // @ts-ignore
+    ...RouterLink.props,
+    inactiveClass: String,
   },
   computed: {
     isExternalLink(): boolean {
-      return typeof this.to === 'string' && this.to.startsWith('http')
+      return typeof this.to === "string" && this.to.startsWith("http");
     },
-  }
-})
+  },
+});
 </script>
 
