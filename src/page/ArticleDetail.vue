@@ -8,6 +8,12 @@
             :style="`background-image: url(${article.thumb})`"
           ></div>
           <h1 :title="article.title" class="article-title">{{ article.title }}</h1>
+          <div class="article-meta">
+            <span>{{ article.update_at }}</span>
+            <span>阅读: <strong>{{ article.meta?.views }}</strong></span>
+            <span>喜欢: <strong>{{ article.meta?.likes }}</strong></span>
+            <span>评论: <strong>{{ article.meta?.comments }}</strong></span>
+          </div>
           <RichContent :sanitize="false" :content="article.content" />
         </div>
         <div class="aside">
@@ -15,6 +21,7 @@
         </div>
       </div>
     </div>
+    <LeftAside />
   </div>
 </template>
 
@@ -25,6 +32,7 @@ import { TIHttpArticleResultOrdinary } from "@app/types/http";
 import { IArticle } from "@app/types/business";
 import RichContent from "@app/components/RichContent.vue";
 import AppDownLoadNav from "@app/components/AppDownLoadNav.vue";
+import LeftAside from "@app/components/LeftAside.vue";
 import { onBeforeRouteLeave } from "vue-router";
 
 export default defineComponent({
@@ -32,6 +40,7 @@ export default defineComponent({
   components: {
     RichContent,
     AppDownLoadNav,
+    LeftAside,
   },
   props: {
     id: String,
@@ -128,6 +137,7 @@ export default defineComponent({
   padding-left: 15px;
   padding-right: 15px;
   width: 960px;
+  position: relative;
 }
 .thumb {
   width: 100%;
@@ -163,6 +173,14 @@ export default defineComponent({
 .article-list {
   margin: 0;
   padding: 0;
+}
+.article-meta {
+  font-size: 14px;
+  color: #b4b4b4;
+  color: var(--textDefault);
+}
+.article-meta span {
+  margin-right: 15px;
 }
 .aside {
   margin-left: 2%;

@@ -20,7 +20,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const htmlContent = ref("<div>xxxxxx</div>");
+    const htmlContent = ref("");
     const { sanitize, content, isMarkdown } = toRefs(props);
     const renderer = new marked.Renderer();
 
@@ -95,7 +95,7 @@ export default defineComponent({
       renderer.image = imageRender;
       renderer.heading = headingRender;
       renderer.paragraph = paragraphRender;
-			renderer.code = codeRender;
+      renderer.code = codeRender;
     };
 
     const init = () => {
@@ -189,8 +189,8 @@ export default defineComponent({
 }
 
 #content {
-	color: #555;
-	color: var(--mardownTextColor);
+  color: #555;
+  color: var(--mardownTextColor);
 }
 
 #content hr {
@@ -225,7 +225,7 @@ export default defineComponent({
   text-decoration: none;
   font-weight: bold;
   margin: 0 0.1rem;
-	word-break: break-all;
+  word-break: break-all;
 }
 #content a.image-link {
   margin: 0;
